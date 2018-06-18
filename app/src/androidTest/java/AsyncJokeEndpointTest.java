@@ -2,6 +2,8 @@ import android.content.Context;
 import android.support.test.runner.AndroidJUnit4;
 import android.util.Pair;
 
+import com.udacity.gradle.builditbigger.AsyncJokeHandler;
+
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -15,7 +17,7 @@ import static android.support.test.InstrumentationRegistry.getInstrumentation;
 @RunWith(AndroidJUnit4.class)
 public class AsyncJokeEndpointTest {
 
-    final Context context = getInstrumentation().getTargetContext();
+    private final Context context = getInstrumentation().getTargetContext();
 
     @Test
     public void testDoInBackground() throws Exception {
