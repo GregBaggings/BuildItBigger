@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PopAJoke</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="joke" />
+    <string name="no_passed_joke">No joke :(</string>
+    <string name="missing_joke">No joke :(</string>
+</resources>
