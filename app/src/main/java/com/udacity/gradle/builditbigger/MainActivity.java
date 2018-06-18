@@ -9,7 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import io.git.bigger.MyJoker;
+import java.util.concurrent.ExecutionException;
+
 import io.git.movies.popajoke.JokeActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,10 +41,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void launchJokeActivity(View view) {
+    public void launchJokeActivity(View view) throws ExecutionException, InterruptedException {
         Intent intent = new Intent(this, JokeActivity.class);
-        MyJoker jokeSource = new MyJoker();
-        String joke = jokeSource.popJoke();
+        AsyncJokeHandler asyncJokeHandler = new AsyncJokeHandler();
+        asyncJokeHandler.execute(new Pair<>(getApplicationContext(), "Test"));
+        String joke = asyncJokeHandler.get();
         intent.putExtra(JokeActivity.JOKE_KEY, joke);
         startActivity(intent);
     }
